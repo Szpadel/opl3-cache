@@ -97,7 +97,7 @@ class APCStrategy implements ReadableStrategyInterface, WritableStrategyInterfac
 		$value = apc_fetch($this->prefix.$key, $success);
 		if(!$success)
 		{
-			throw new StrategyException('The APC cache key does not exist: \''.$key.'\'.');
+			throw new KeyNotFoundException('The APC cache key does not exist: \''.$key.'\'.');
 		}
 		return $value;
 	} // end get();

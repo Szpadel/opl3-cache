@@ -11,6 +11,7 @@
  */
 namespace Opl\Cache\ActiveStrategy;
 use Opl\Cache\Exception\KeyNotFoundException;
+use Opl\Cache\Exception\StrategyException;
 use Opl\Cache\Interfaces\ReadableStrategyInterface;
 use Opl\Cache\Interfaces\WritableStrategyInterface;
 
@@ -65,7 +66,7 @@ class ChdbBuilderStrategy implements ReadableStrategyInterface, WritableStrategy
 	{
 		if(!isset($this->data[$key]))
 		{
-			throw new StrategyException('The chdb cache key does not exist: \''.$key.'\'.');
+			throw new KeyNotFoundException('The chdb cache key does not exist: \''.$key.'\'.');
 		}
 		return $this->data[$key];
 	} // end get();
